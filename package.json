@@ -1,0 +1,23 @@
+{
+  "name": "atom-timestamp",
+  "main": "./lib/atom-timestamp",
+  "version": "0.0.1",
+  "description": "Update timestamp comment",
+  "keywords": [
+    "timestamp"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jo-o-jj/atom-timestamp.git"
+  },
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "author": "jo-o-jj",
+  "bugs": {
+    "url": "https://github.com/jo-o-jj/atom-timestamp/issues"
+  },
+  "dependencies": {
+    "moment": ">=2.0.0"
+  }
+}
