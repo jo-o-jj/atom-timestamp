@@ -10,6 +10,8 @@ module.exports = AtomTimestamp =
       type: 'string'
       default: '[">]?$'
     timestampFormats:
+      title: 'Timestamp Formats'
+      description: 'Specify format-string for parsing timestamp. Use [Moment.js format](http://momentjs.com/docs/#/displaying/format/)'
       type: 'array'
       default: [
         'MMM DD YYYY'
@@ -20,6 +22,7 @@ module.exports = AtomTimestamp =
       items:
         type: 'string'
     updateOnSave:
+      title: 'Auto-run update on save'
       type: 'boolean'
       default: true
 
