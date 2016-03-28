@@ -22,7 +22,6 @@ module.exports = AtomTimestamp =
       items:
         type: 'string'
     numberOfLines:
-      title: 'Lines'
       description: 'Specity number of lines to search timestamp comments from the beginning.'
       type: 'integer'
       default: 8
@@ -51,7 +50,7 @@ module.exports = AtomTimestamp =
     @subscriptions = null
 
   updateTimestamp: (editor) ->
-    range = [[0, 0], [atom.config.get('atom-timestamp:numberOfLines'), 0]]
+    range = [[0, 0], [atom.config.get('atom-timestamp.numberOfLines'), 0]]
     prefix = new RegExp atom.config.get('atom-timestamp.timestampPrefix'), 'g'
     suffix = new RegExp atom.config.get('atom-timestamp.timestampSuffix')
     formats = atom.config.get 'atom-timestamp.timestampFormats'
