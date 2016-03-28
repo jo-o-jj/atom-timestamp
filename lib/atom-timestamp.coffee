@@ -27,7 +27,8 @@ module.exports = AtomTimestamp =
 
   activate: (state) ->
     @subscriptions = new CompositeDisposable
-    @subscriptions.add atom.commands.add 'atom-workspace', 'atom-timestamp:update-timestamp': =>
+    @subscriptions.add atom.commands.add 'atom-workspace',
+      'atom-timestamp:update-timestamp': =>
         if editor = atom.workspace.getActiveTextEditor()
           @updateTimestamp editor
 
@@ -49,11 +50,11 @@ module.exports = AtomTimestamp =
     buffer.transact ->
       buffer.scan prefix, ({computedRange, lineText}) ->
         endPos = computedRange.end
-        m = suffix.exec(lineText.substring(endPos.column))
+        m = suffix.exec lineText.substring(endPos.column)
         t = moment lineText.substr(endPos.column, m.index), formats, true
         return unless t.isValid()
 
-        scopeDescriptor = editor.scopeDescriptorForBufferPosition(endPos)
+        scopeDescriptor = editor.scopeDescriptorForBufferPosition endPos
         return if scopeDescriptor.getScopesArray().every (s) ->
           !/^comment|text\.plain/.test(s)
 
