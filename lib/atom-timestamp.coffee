@@ -5,7 +5,7 @@ module.exports = AtomTimestamp =
   config:
     timestampPrefix:
       type: 'string'
-      default: 'Time-stamp[ \\t:]+["<]?'
+      default: 'Time-stamp:[ \\t]+["<]?'
     timestampSuffix:
       type: 'string'
       default: '[">]?$'
