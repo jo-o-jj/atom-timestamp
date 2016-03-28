@@ -41,8 +41,8 @@ module.exports = AtomTimestamp =
     @subscriptions = null
 
   updateTimestamp: (editor) ->
-    prefix = new RegExp(atom.config.get 'atom-timestamp.timestampPrefix', 'g')
-    suffix = new RegExp(atom.config.get 'atom-timestamp.timestampSuffix')
+    prefix = new RegExp atom.config.get('atom-timestamp.timestampPrefix'), 'g'
+    suffix = new RegExp atom.config.get('atom-timestamp.timestampSuffix')
     formats = atom.config.get 'atom-timestamp.timestampFormats'
 
     buffer = editor.getBuffer()
