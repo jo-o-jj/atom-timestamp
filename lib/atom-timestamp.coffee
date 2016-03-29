@@ -60,7 +60,7 @@ module.exports = AtomTimestamp =
       buffer.scanInRange prefix, scanRange, ({range}) ->
         endPos = range.end
         lineText = buffer.lineForRow(endPos.row)
-        m = suffix.exec lineText.substring(endPos.column)
+        return unless m = suffix.exec lineText.substring(endPos.column)
         t = moment lineText.substr(endPos.column, m.index), formats, true
         return unless t.isValid()
 
