@@ -50,14 +50,14 @@ module.exports = AtomTimestamp =
     @subscriptions = null
 
   updateTimestamp: (editor) ->
-    range = [[0, 0], [atom.config.get('atom-timestamp.numberOfLines'), 0]]
+    scanRange = [[0, 0], [atom.config.get('atom-timestamp.numberOfLines'), 0]]
     prefix = new RegExp atom.config.get('atom-timestamp.timestampPrefix'), 'g'
     suffix = new RegExp atom.config.get('atom-timestamp.timestampSuffix')
     formats = atom.config.get 'atom-timestamp.timestampFormats'
 
     buffer = editor.getBuffer()
     buffer.transact ->
-      buffer.scanInRange prefix, range, ({range}) ->
+      buffer.scanInRange prefix, scanRange, ({range}) ->
         endPos = range.end
         lineText = buffer.lineForRow(endPos.row)
         m = suffix.exec lineText.substring(endPos.column)
