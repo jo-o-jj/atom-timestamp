@@ -1,7 +1,7 @@
 {
   "name": "atom-timestamp",
   "main": "./lib/atom-timestamp",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Update timestamp comment",
   "keywords": [
     "timestamp"
