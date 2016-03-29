@@ -68,5 +68,5 @@ module.exports = AtomTimestamp =
         return if scopeDescriptor.getScopesArray().every (s) ->
           !/^comment|text\.plain/.test(s)
 
-        rep = lineText.substring(0, endPos.column) + moment().format(t.creationData().format) + lineText.substring(endPos.column + m.index)
-        buffer.setTextInRange buffer.rangeForRow(endPos.row), rep
+        rep = moment().format(t.creationData().format)
+        buffer.setTextInRange [endPos, [endPos.row, endPos.column + m.index]], rep
