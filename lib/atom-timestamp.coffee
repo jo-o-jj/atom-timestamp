@@ -57,11 +57,11 @@ module.exports = AtomTimestamp =
 
     buffer = editor.getBuffer()
     buffer.transact ->
-      buffer.scanInRange prefix, scanRange, ({range}) ->
+      buffer.backwardsScanInRange prefix, scanRange, ({range}) ->
         endPos = range.end
         lineText = buffer.lineForRow(endPos.row)
         return unless m = suffix.exec lineText.substring(endPos.column)
-        t = moment lineText.substr(endPos.column, m.index), formats, true
+        t = moment m.input.substring(0, m.index), formats, true
         return unless t.isValid()
 
         scopeDescriptor = editor.scopeDescriptorForBufferPosition endPos
