@@ -4,14 +4,17 @@ moment = require 'moment'
 module.exports = AtomTimestamp =
   config:
     timestampPrefix:
+      order: 1
       type: 'string'
       default: 'Time-stamp:[ \\t]+["<]?'
     timestampSuffix:
+      order: 2
       type: 'string'
       default: '[">]?$'
     timestampFormats:
+      order: 3
       title: 'Timestamp Formats'
-      description: 'Specify format-string for parsing timestamp. Use [Moment.js format](http://momentjs.com/docs/#/displaying/format/)'
+      description: 'Specify format-string for parsing/updating timestamp. Use [Moment.js format](http://momentjs.com/docs/#/displaying/format/). Time zone tokens (`z`, `zz`) and localized formats (`L`, `l`, ...) do not work.'
       type: 'array'
       default: [
         'MMM DD YYYY'
@@ -22,11 +25,13 @@ module.exports = AtomTimestamp =
       items:
         type: 'string'
     numberOfLines:
+      order: 4
       description: 'Specity number of lines to search timestamp comments from the beginning.'
       type: 'integer'
       default: 8
       minimum: 1
     updateOnSave:
+      order: 5
       title: 'Auto-run update on save'
       type: 'boolean'
       default: true
