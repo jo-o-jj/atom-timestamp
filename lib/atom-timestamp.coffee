@@ -24,14 +24,18 @@ module.exports = AtomTimestamp =
       ]
       items:
         type: 'string'
-    numberOfLines:
+    scopeSelector:
       order: 4
+      type: 'string'
+      default: '^comment\\b|plain\\.text'
+    numberOfLines:
+      order: 5
       description: 'Specity number of lines to search timestamp comments from the beginning.'
       type: 'integer'
       default: 8
       minimum: 1
     updateOnSave:
-      order: 5
+      order: 6
       title: 'Auto-run update on save'
       type: 'boolean'
       default: true
@@ -58,6 +62,7 @@ module.exports = AtomTimestamp =
     scanRange = [[0, 0], [atom.config.get('atom-timestamp.numberOfLines'), 0]]
     prefix = new RegExp atom.config.get('atom-timestamp.timestampPrefix'), 'g'
     suffix = new RegExp atom.config.get('atom-timestamp.timestampSuffix')
+    scope = new RegExp atom.config.get 'atom-timestamp.scopeSelector'
     formats = atom.config.get 'atom-timestamp.timestampFormats'
 
     buffer = editor.getBuffer()
@@ -71,7 +76,7 @@ module.exports = AtomTimestamp =
 
         scopeDescriptor = editor.scopeDescriptorForBufferPosition endPos
         return if scopeDescriptor.getScopesArray().every (s) ->
-          !/^comment|text\.plain/.test(s)
+          !scope.test(s)
 
         rep = moment().format(t.creationData().format)
         buffer.setTextInRange [endPos, [endPos.row, endPos.column + m.index]], rep
