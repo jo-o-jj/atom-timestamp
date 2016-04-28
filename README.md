@@ -1,8 +1,8 @@
 # atom-timestamp
 
-Update timestamp comments like: `Time-stamp: <Jun 23 2016>` to current date/time
+Update timestamp comments like `Time-stamp: <Jun 02 2006>`, `Time-stamp: <2006-01-02 15:04:05>` to current date/time
 
-This package uses [Moment.js](http://momentjs.com/) library for parsing timestamp format
+This package uses [Moment.js](http://momentjs.com/) library for parsing/updating timestamp
 
 ## Installation
 
@@ -18,4 +18,4 @@ or search for `atom-timestamp` in Atom.
 
 ### Commands
 
-* `atom-timestamp:update-timestamp` - update timestamp comments
+* `atom-timestamp:update-timestamp` - update timestamp comments to current date/time
