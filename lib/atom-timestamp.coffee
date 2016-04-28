@@ -66,8 +66,8 @@ module.exports = AtomTimestamp =
     formats = atom.config.get 'atom-timestamp.timestampFormats'
 
     buffer = editor.getBuffer()
-    buffer.transact ->
-      buffer.backwardsScanInRange prefix, scanRange, ({range}) ->
+    buffer.transact =>
+      buffer.backwardsScanInRange prefix, scanRange, ({range}) =>
         endPos = range.end
         lineText = buffer.lineForRow(endPos.row)
         return unless m = suffix.exec lineText.substring(endPos.column)
@@ -75,8 +75,7 @@ module.exports = AtomTimestamp =
         return unless t.isValid()
 
         scopeDescriptor = editor.scopeDescriptorForBufferPosition endPos
-        return if scopeDescriptor.getScopesArray().every (s) ->
-          !scope.test(s)
+        return if scopeDescriptor.getScopesArray().every (s) -> !scope.test(s)
 
         rep = moment().format(t.creationData().format)
         buffer.setTextInRange [endPos, [endPos.row, endPos.column + m.index]], rep
