@@ -5,10 +5,14 @@ module.exports = AtomTimestamp =
   config:
     timestampPrefix:
       order: 1
+      title: 'Timestamp Prefix'
+      description: 'Specify regular expression pattern for timestamp prefix.'
       type: 'string'
       default: 'Time-stamp:[ \\t]+["<]?'
     timestampSuffix:
       order: 2
+      title: 'Timestamp Suffix'
+      description: 'Specify regular expression pattern for timestamp suffix.'
       type: 'string'
       default: '[">]?$'
     timestampFormats:
@@ -26,11 +30,14 @@ module.exports = AtomTimestamp =
         type: 'string'
     scopeSelector:
       order: 4
+      title: 'Scope Selector'
+      description: 'Specify regular expression pattern for scope name in syntax. Use `Editor: Log Cursor Scope` command to get scope names on current cursor.'
       type: 'string'
       default: '^comment\\b|plain\\.text'
     numberOfLines:
       order: 5
-      description: 'Specity number of lines to search timestamp comments from the beginning.'
+      title: 'Number of Lines'
+      description: 'Specity number of lines from the beginning to search timestamp comments.'
       type: 'integer'
       default: 8
       minimum: 1
