@@ -10,6 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/jo-o-jj/atom-timestamp.git"
   },
+  "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
