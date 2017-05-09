@@ -19,6 +19,6 @@
     "url": "https://github.com/jo-o-jj/atom-timestamp/issues"
   },
   "dependencies": {
-    "moment": ">=2.0.0"
+    "moment": ">=2.18.1"
   }
 }

@@ -78,11 +78,12 @@ module.exports = AtomTimestamp =
         endPos = range.end
         lineText = buffer.lineForRow(endPos.row)
         return unless m = suffix.exec lineText.substring(endPos.column)
-        t = moment m.input.substring(0, m.index), formats, true
+        str = m.input.substring(0, m.index)
+        t = moment str, formats, true
         return unless t.isValid()
 
         scopeDescriptor = editor.scopeDescriptorForBufferPosition endPos
         return if scopeDescriptor.getScopesArray().every (s) -> !scope.test(s)
 
-        rep = moment().format(t.creationData().format)
+        rep = moment().utcOffset(str).format(t.creationData().format)
         buffer.setTextInRange [endPos, [endPos.row, endPos.column + m.index]], rep
