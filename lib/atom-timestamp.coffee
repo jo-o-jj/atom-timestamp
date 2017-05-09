@@ -22,6 +22,7 @@ module.exports = AtomTimestamp =
       type: 'array'
       default: [
         'MMM DD YYYY'
+        'YYYY-MM-DD[T]HH:mm:ssZ'
         'YYYY-MM-DD HH:mm:ss'
         'YYYY-MM-DD'
         'YYYYMMDD'
